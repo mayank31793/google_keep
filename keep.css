@@ -77,6 +77,7 @@
 	float: right;
 	margin-right: 20px;
 	cursor: pointer;
+	position: relative;
 }
 
 .done:hover{
@@ -87,8 +88,15 @@
 	cursor: pointer;
 }
 
+.notes_display{
+	margin-top: 20px;
+	position: relative;
+}
+
 .input{
 	outline: 0px solid transparent;
+	font-size: 20px;
+	font-family: cursive;
 }
 
 .store_div{
@@ -99,7 +107,33 @@
 
 .storing_div{
 	float: left;
-	width: 100px;
-	border:1px solid black;
-	margin-right: 5px;
+	width: 200px;
+	box-shadow: 1px 1px 1px 1px #B2B8A8;
+	margin-right: 20px;
+	padding: 10px;
+	font-size: 24px;
+	font-family: cursive;	
+}
+
+.star{
+	float: right;
+}
+
+.star:hover{
+	cursor: pointer;
+}
+
+.append_div{
+	width: 120px;
+	padding: 5px;
+	text-align: center;
+	box-shadow: 1px 1px 1px 1px #E9EBE6;
+	position: absolute;
+	left:370px;
+	top:30px;
+}
+
+.append_div:hover{
+	background-color: #D7DCD0;
+	cursor: pointer;
 }

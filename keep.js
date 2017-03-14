@@ -59,19 +59,19 @@ $(document).on('click','.notes',function(){
 	$('.input').focus();
 });	
 
-$(document).one('keydown','.input',function(){
+$(document).on('keydown','.input',function(){
 	$('.heading').show();
 	$('.last_div').show();	
 });
 
-$(document).one('click','.input',function(){
+$(document).on('click','.input',function(){
 	$('.heading').show();
 	$('.last_div').show();	
 });
 
 $(document).on('click','.done',function(){
 	if($('.input').html()!=""){
-		$('.store_div').append("<div class='storing_div'>"+$('.input').html()+"</div>");
+		$('.store_div').append("<div class='storing_div'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
 		$('.input').html("");	
 	}
 });
@@ -82,15 +82,34 @@ $(document).on('click','.done',function(){
 
 $(document).on('focusout','.div_notes',function(){
 	if($('.input').html()!=""){
-		$('.store_div').append("<div class='storing_div'>"+$('.input').html()+"</div>");
+		$('.store_div').append("<div class='storing_div'>"+$('.input').html()+"<div class='star'>*</div></div>");
 		$('.input').html("");	
 	}	
 })
 
 $(document).on('focusout','.div_notes',function(){
-	$('.input').focus();
+	// $('.input').focus();
+	$('.heading').hide();
+	$('.last_div').hide();	
 });
 
-$(function(){
-	$('.storing_div').draggable();
+$(document).ready(function(){
+	$('.checkbox_div').hide();
 });
+
+$(document).ready(function(){
+	$('.append_div').hide();
+});
+
+$(document).on('click','.checkbox',function(){
+	$('.notes_display').append("<div class='append_div'>Checkbox</div>");
+	$('.append_div').show();
+});
+
+$(document).on('click','.append_div',function(){
+	$('.append_div').hide();
+	$('.input').append("<input type='checkbox'>");
+});
+
+
+
