@@ -103,13 +103,30 @@ $(document).ready(function(){
 
 $(document).on('click','.checkbox',function(){
 	$('.notes_display').append("<div class='append_div'>Checkbox</div>");
-	$('.append_div').show();
+	$('.append_div').show();	
+});
+
+$(document).on('click','.append_div',function(){
+	$('.heading').show();
+	$('.last_div').show();	
 });
 
 $(document).on('click','.append_div',function(){
 	$('.append_div').hide();
+	$('.input').focus();
 	$('.input').append("<input type='checkbox'>");
+	$('.input').keydown(function(e){
+		if(e.which==13){
+			$('.input').append("<input type='checkbox'>");
+		}
+	});
+});
+
+$(document).on('click','.star',function(){
+	$(this).closest('.storing_div').append("<div class='delete_div'>Delete Note</div>");
 });
 
 
-
+$(document).on('click','.delete_div',function(){
+	this.closest('.storing_div').remove();
+});
