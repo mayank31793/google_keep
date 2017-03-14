@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Google Keep</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+    <script type="text/javascript" src="keep.js"></script>
+    <link rel="stylesheet" type="text/css" href="keep.css">
+</head>
+<body>
+<div class="header">
+	<a href="index.html" class="title_heading">Google Keep</a>
+	<input type="text" name="" placeholder="search" class="search">
+</div>
+<div class="left_tab">
+	<div class="tab_common notes"><center>Notes</center></div>
+	<div class="tab_common remainder"><center>Remainder</center></div><hr>
+	<div class="tab_common label"><center><span style="float: left;margin-left: 5px;">Label</span><span style="float: right; margin-right: 5px;">EDIT</span></center></div><hr>
+	<div class="tab_common archive"><center>Archive</center></div>
+	<div class="tab_common trash"><center>Trash</center></div><hr>
+	<div class="tab_common setting"><center>Settings</center></div>
+	<div class="tab_common feedback"><center>Send feedback</center></div>
+	<div class="tab_common help"><center>Help</center></div>
+	<div class="tab_common app"><center>App Download</center></div>
+	<div class="tab_common key"><center>Key Shortcuts</center></div>
+	<div class="tab_common"><span class="last_tab">Privacy</span><span class="last_tab">terms</span><br><span class="last_tab">Open Source</span></div>
+</div>
+
+<div class="tab_display notes_display">
+	<div class="div_notes">
+		<h3 class="heading">TITLE</h3>
+		<div class="input" contenteditable="true"></div>
+		<div class="last_div"><span class="done">DONE</span><span class="checkbox">*</span></div>
+	</div>
+	<div class="store_div"></div>
+</div>
+<div class="tab_display remainder_display">remainder</div>
+<div class="tab_display label_display">label</div>
+<div class="tab_display archive_display">archive</div>
+<div class="tab_display trash_display"></div>
+<div class="tab_display setting_display"></div>
+<div class="tab_display feedback_display"></div>
+<div class="tab_display help_display"></div>
+<div class="tab_display app_display"></div>
+<div class="tab_display key_display"></div>
+<div class="tab_display"></div>
+</body>
+</html>

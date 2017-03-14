@@ -1,0 +1,105 @@
+*{
+	box-sizing: content-box;
+}
+
+.header{
+	height: 80px;
+	background-color: #90A410;
+	box-shadow: 1px 1px 1px 1px #B9BD96;
+}
+
+.title_heading{
+	text-decoration: none;
+	font-size: 30px; 
+	float: left;
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+.title_heading:hover{
+	text-shadow: 1px 1px 1px 1px #E6D0D0;
+}
+
+.title_heading:hover{
+	text-decoration: none;
+}
+
+.search{
+	margin-top: 13px;
+	margin-left: 20px;
+	width: 450px;
+	height: 40px;
+	opacity: .7;
+	background-color: #CEF592;
+	border-radius: 5px;
+	float: left;
+}
+
+.left_tab{
+	background-color: #D2D4C6;
+	height: 100%;
+	width: 220px;
+	overflow-y: scroll;
+	float: left;
+}
+
+.tab_common:hover{
+	cursor: pointer;
+	background-color: #A1A297;
+}
+
+.tab_common{
+	height: 50px;
+	padding-top: 10px;
+}
+
+.last_tab{
+	font-size: 10px;
+	visibility: .2;
+}
+
+.notes_display,.remainder_display,.label_display,.archive_display,.trash_display,.setting_display{
+	float: left;
+}
+
+.div_notes{
+	margin-left: 200px;
+	box-shadow: 1px 1px 1px 1px #460000;
+	width: 350px;
+}
+
+.done{
+	float: right;
+	cursor: pointer;
+}
+
+.checkbox{
+	float: right;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.done:hover{
+	cursor: pointer;
+}
+
+.checkbox:hover{
+	cursor: pointer;
+}
+
+.input{
+	outline: 0px solid transparent;
+}
+
+.store_div{
+	margin-top: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.storing_div{
+	float: left;
+	width: 100px;
+	border:1px solid black;
+	margin-right: 5px;
+}

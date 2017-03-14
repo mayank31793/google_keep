@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>practise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style type="text/css">
+    	.notes{
+    		width: 300px;
+    		box-shadow: 1px 1px 1px 1px black;
+    	}
+    	[contenteditable]:focus{
+    		outline: 0px;
+    	}
+    </style>
+</head>
+<body>
+<div class="notes" contenteditable="true"></div>
+<div class="notes_save"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.notes').focus();
+	$('.notes').css({"height":"50px"});
+});
+
+$(document).on('keyup','.notes',function(e){
+	if(e.which==13){
+		$('.notes').css('height','+=20px');
+	}
+	if(e.which==8){
+		$('.notes').css('height','-=20px');
+	}	
+});
+</script>
+</body>
+</html>
