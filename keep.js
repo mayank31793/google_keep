@@ -84,6 +84,9 @@ $(document).on('focusout','.div_notes',function(){
 	if($('.input').html()!=""){
 		$('.store_div').append("<div class='storing_div'>"+$('.input').html()+"<div class='star'>*</div></div>");
 		$('.input').html("");	
+		if(($('.storing_div').length+1)%3==1){
+			$('.store_div').append("<br>");
+		}
 	}	
 })
 
@@ -103,21 +106,22 @@ $(document).ready(function(){
 
 $(document).on('click','.checkbox',function(){
 	$('.notes_display').append("<div class='append_div'>Checkbox</div>");
-	$('.append_div').show();	
+	$('.append_div').show();
 });
 
 $(document).on('click','.append_div',function(){
 	$('.heading').show();
 	$('.last_div').show();	
+	$('.input').focus();
 });
 
 $(document).on('click','.append_div',function(){
 	$('.append_div').hide();
 	$('.input').focus();
-	$('.input').append("<input type='checkbox'>");
+	$('.input').append("<input type='checkbox' class='checkbox_click'>");
 	$('.input').keydown(function(e){
 		if(e.which==13){
-			$('.input').append("<input type='checkbox'>");
+			$('.input').append("<input type='checkbox' class='checkbox_click'>");
 		}
 	});
 });
@@ -130,3 +134,10 @@ $(document).on('click','.star',function(){
 $(document).on('click','.delete_div',function(){
 	this.closest('.storing_div').remove();
 });
+
+$(document).on('click','.storing_div',function(){
+	$(this).draggable();
+});
+ 
+	
+	
