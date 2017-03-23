@@ -3,33 +3,84 @@
 <head>
 	<title>practise</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <style type="text/css">
     	.notes{
-    		width: 300px;
-    		box-shadow: 1px 1px 1px 1px black;
+    		width: 100px;
+    		height: 100px;
     	}
-    	[contenteditable]:focus{
-    		outline: 0px;
+    	.notes{
+			background-color: green;
     	}
+    	.notes_{
+    		background-color: red;	
+    	}
+    	.model{
+			display: none;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.4);
+			position: fixed;
+			overflow: auto;
+			background-color: #C3C6BE;
+			top: 0px;
+			left: 0px;
+		}
+
+		.model_content{
+			position: relative;
+			display: none;
+			background-color: #fefefe;
+			margin: 15% auto;
+			width: 80%;
+			padding: 12px;
+		}
+
+		.close{
+			position: absolute;
+			display: none;
+			font-size: 20px;
+			font-weight: bold;
+			float: right;
+		}
     </style>
 </head>
 <body>
-<div class="notes" contenteditable="true"></div>
-<div class="notes_save"></div>
+<div class="notes">
+	notes1
+</div>
+<div class="notes">
+	notes2
+</div>
+
+<div class="model">
+	<div class="model_content">Hi
+		<span class="close">&times;</span>
+	</div>
+</div>
+
 <script type="text/javascript">
-$(document).ready(function(){
-	$('.notes').focus();
-	$('.notes').css({"height":"50px"});
+$(function(){
+	$('.notes').draggable();
+});
+$(function(){
+	$('.notes_').draggable();
+	console.log("hi");
 });
 
-$(document).on('keyup','.notes',function(e){
-	if(e.which==13){
-		$('.notes').css('height','+=20px');
-	}
-	if(e.which==8){
-		$('.notes').css('height','-=20px');
-	}	
+$(document).on('click','.notes',function(){
+	$('.model').css("display","block");
+	$('.model_content').css("display","block");
+	$('.close').css("display","block");
 });
+
+$(document).on('click','.close',function(){
+	$('.model').css("display","none");
+	$('.model_content').css("display","none");
+	$('.close').css("display","none");	
+});
+
 </script>
 </body>
 </html>

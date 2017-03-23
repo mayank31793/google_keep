@@ -69,15 +69,26 @@
 }
 
 .done{
+	padding-right: 5px;
+	padding-bottom: 5px;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	opacity: .7;
 	float: right;
 	cursor: pointer;
 }
 
 .checkbox{
 	float: right;
-	margin-right: 20px;
+	font-family: sans-serif;
+	font-weight: bold;
+	opacity: .7;		
 	cursor: pointer;
 	position: relative;
+	margin-right: 15px;
+	bottom: 10px;
+	font-size: 20px;
 }
 
 .done:hover{
@@ -127,13 +138,14 @@
 }
 
 .append_div{
+	background-color: #DBF7B0;
 	width: 120px;
 	padding: 5px;
 	text-align: center;
 	box-shadow: 1px 1px 1px 1px #E9EBE6;
 	position: absolute;
-	left:370px;
-	top:30px;
+	left:380px;
+	top:50px;
 }
 
 .append_div:hover{
@@ -142,6 +154,7 @@
 }
 
 .delete_div{
+	padding-top: 5px;
 	width: 100px;
 	height: 30px;
 	text-align: center;
@@ -155,4 +168,41 @@
 .delete_div:hover{
 	background-color: #D7DCD0;
 	cursor: pointer;
+}
+
+.storing_div:hover{
+	cursor: pointer;
+	box-shadow: 2px 2px 2px 2px #939590;
+}
+
+.model{
+	display: none;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	overflow: auto;
+	background-color: rgba(1,0,0,0.4);
+	top: 0px;
+	left: 0px;
+}
+
+.model_content{
+	display: none;
+	background-color: white;
+	border: 1px solid black;
+	margin: 15% auto;
+	width: 60%;
+	padding: 12px;
+}
+
+.close{
+	position: fixed;
+	top: 200px;
+	right: 270px;
+	display: none;
+	float: right;
+	margin-right: 5px;
+	
 }

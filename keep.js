@@ -71,7 +71,7 @@ $(document).on('click','.input',function(){
 
 $(document).on('click','.done',function(){
 	if($('.input').html()!=""){
-		$('.store_div').append("<div class='storing_div'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
+		$('.store_div').append("<div class='storing_div' draggable='true'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
 		$('.input').html("");	
 	}
 });
@@ -117,11 +117,12 @@ $(document).on('click','.append_div',function(){
 
 $(document).on('click','.append_div',function(){
 	$('.append_div').hide();
-	$('.input').focus();
-	$('.input').append("<input type='checkbox' class='checkbox_click'>");
+	$('.input').append("<input type='checkbox' class='checkbox_click'><span class='span_input'></span>");
+	// $('.span_input').focus();
 	$('.input').keydown(function(e){
 		if(e.which==13){
-			$('.input').append("<input type='checkbox' class='checkbox_click'>");
+			$('.input').append("<input type='checkbox' class='checkbox_click'><span class='span_input'></span>");
+			// $('.span_input').focus();
 		}
 	});
 });
@@ -134,10 +135,33 @@ $(document).on('click','.star',function(){
 $(document).on('click','.delete_div',function(){
 	this.closest('.storing_div').remove();
 });
+ 
+$(document).on('click','.checkbox_click',function(){
+	$('.done').show();
+	$('.input').show();
+	$('.heading').show();
+});	
+
+$("html").click(function(){
+	$('.delete_div').hide();
+	$('.append_div').hide();
+});
+	
+$(function() {
+   $( ".storing_div" ).draggable();
+});
 
 $(document).on('click','.storing_div',function(){
-	$(this).draggable();
+	var x = $(this).html();
+	$('.model_content').html(x);
+	$('.model').css("display","block");
+	$('.model_content').css("display","block");
+	$('.close').css("display","block");
+	
 });
- 
-	
-	
+
+$(document).on('click','.close',function(){
+	$('.model').css("display","none");
+	$('.model_content').css("display","none");
+	$('.close').css("display","none");	
+});
