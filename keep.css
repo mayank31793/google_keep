@@ -183,7 +183,7 @@
 	background-color: rgba(0,0,0,0.4);
 	position: fixed;
 	overflow: auto;
-	background-color: rgba(1,0,0,0.4);
+	background-color: rgba(0,0,0,0.4);
 	top: 0px;
 	left: 0px;
 }
@@ -191,18 +191,50 @@
 .model_content{
 	display: none;
 	background-color: white;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	margin: 15% auto;
 	width: 60%;
 	padding: 12px;
+	border-radius: 5px;
+	padding-top: 50px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	font-family: cursive;
+	font-size: 20px;
+	position: relative;
 }
 
 .close{
-	position: fixed;
-	top: 200px;
-	right: 270px;
-	display: none;
-	float: right;
+	position: absolute;
+	top: 5px;
+	right: 5px;
 	margin-right: 5px;
-	
+	float: right;
+
+}
+
+.popup_done{
+	position: absolute;
+	float: right;
+	bottom: 0px;
+	right: 0px;
+	margin-right: 50px;
+	margin-bottom: 5px;
+	margin-top: 25px;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.checkbox_type{
+	float: left;
+}
+
+.checkbox_div{
+	float: right;
+}
+
+.model_content_div{
+	text-decoration: none;
+	outline: 0px solid transparent;
 }

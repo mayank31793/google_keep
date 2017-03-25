@@ -47,12 +47,16 @@
     </style>
 </head>
 <body>
-<div class="notes">
-	notes1
+<div class="pack">
+	<div class="notes">
+		notes1
+	</div>
+	
+	<div class="notes">
+		notes2
+	</div>	
 </div>
-<div class="notes">
-	notes2
-</div>
+
 
 <div class="model">
 	<div class="model_content">Hi
@@ -63,10 +67,6 @@
 <script type="text/javascript">
 $(function(){
 	$('.notes').draggable();
-});
-$(function(){
-	$('.notes_').draggable();
-	console.log("hi");
 });
 
 $(document).on('click','.notes',function(){

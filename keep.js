@@ -71,7 +71,7 @@ $(document).on('click','.input',function(){
 
 $(document).on('click','.done',function(){
 	if($('.input').html()!=""){
-		$('.store_div').append("<div class='storing_div' draggable='true'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
+		$('.store_div').append("<div class='storing_div' contenteditable='true'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
 		$('.input').html("");	
 	}
 });
@@ -88,7 +88,7 @@ $(document).on('focusout','.div_notes',function(){
 			$('.store_div').append("<br>");
 		}
 	}	
-})
+});
 
 $(document).on('focusout','.div_notes',function(){
 	// $('.input').focus();
@@ -117,12 +117,14 @@ $(document).on('click','.append_div',function(){
 
 $(document).on('click','.append_div',function(){
 	$('.append_div').hide();
-	$('.input').append("<input type='checkbox' class='checkbox_click'><span class='span_input'></span>");
-	// $('.span_input').focus();
+	$('.input').append("<label><input type='checkbox' class='checkbox_type'><div contenteditable='true' class='checkbox_div'></div></label>");
+	$('.checkbox_div').focus();
+	console.log("hi this works");
 	$('.input').keydown(function(e){
 		if(e.which==13){
-			$('.input').append("<input type='checkbox' class='checkbox_click'><span class='span_input'></span>");
-			// $('.span_input').focus();
+			$('.input').append("<label><input type='checkbox' class='checkbox_type'><div contenteditable='true' class='checkbox_div'></div></label>");
+			$('.checkbox_div').focus();
+			console.log("hi also works");
 		}
 	});
 });
@@ -151,17 +153,29 @@ $(function() {
    $( ".storing_div" ).draggable();
 });
 
-$(document).on('click','.storing_div',function(){
+$(document).on('dblclick','.storing_div',function(){
 	var x = $(this).html();
-	$('.model_content').html(x);
+	$(this).remove();
+	console.log("that is div");
+	$('.model_content_div').html(x);
 	$('.model').css("display","block");
 	$('.model_content').css("display","block");
 	$('.close').css("display","block");
-	
+	$('.model_content').append('<div class="popup_done" contenteditable="false">DONE</div>');
+	$('.model_content').append('<div class="close">✖</div>');
 });
 
 $(document).on('click','.close',function(){
 	$('.model').css("display","none");
 	$('.model_content').css("display","none");
 	$('.close').css("display","none");	
+});
+
+$(document).on('click','.popup_done',function(){
+	$('.model').css("display","none");
+	$('.model_content').css("display","none");
+	$('.close').css("display","none");
+	if($('.storing_div').html()!=$('.model_content').html()){
+		$('.store_div').append("<div class='storing_div'>"+$('.model_content_div').html()+"</div>");
+	}	
 });
