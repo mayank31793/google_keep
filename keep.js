@@ -135,13 +135,13 @@ $(document).on('click','.span_type',function(){
 	// $(".span_type:last").hide();
 });
 
-// $(document).on('click','.done',function(){
-// 	$(".span_type:last").hide();
-// });
+$(document).on('click','.done',function(){
+	$(".span_type:last").hide();
+});
 
-// $(document).on('focusout','.div_notes',function(){
-// 	$(".span_type:last").hide();
-// });
+$(document).on('focusout','.div_notes',function(){
+	$(".span_type:last").hide();
+});
 
 $(document).on('click','.checkbox_type',function(){
 	if($('.checkbox_type').is(':checked')){
@@ -173,10 +173,6 @@ $("html").click(function(){
 });
 
 $(document).on('mousedown','.storing_div',function(){
-	$(this).draggable();
-});
-
-$(document).on('mouseenter','.storing_div',function(){
 	$(this).draggable();
 });
 
