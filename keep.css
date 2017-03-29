@@ -226,15 +226,25 @@
 	cursor: pointer;
 }
 
-.checkbox_type{
-	float: left;
-}
-
-.checkbox_div{
-	float: right;
-}
-
 .model_content_div{
 	text-decoration: none;
 	outline: 0px solid transparent;
+}
+
+.span_type{
+	float: right;
+	cursor: pointer;
+}
+
+.span_type:hover{
+	color: red;
+}
+
+.main_div{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.checkbox_type{
+	cursor: pointer;
 }

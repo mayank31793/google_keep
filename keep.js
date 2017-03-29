@@ -71,7 +71,7 @@ $(document).on('click','.input',function(){
 
 $(document).on('click','.done',function(){
 	if($('.input').html()!=""){
-		$('.store_div').append("<div class='storing_div' contenteditable='true'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
+		$('.store_div').append("<div class='storing_div' contenteditable='false'>"+$('.input').html()+"<span class='delete_div'>"+"*"+"</span></div>");
 		$('.input').html("");	
 	}
 });
@@ -111,22 +111,34 @@ $(document).on('click','.checkbox',function(){
 
 $(document).on('click','.append_div',function(){
 	$('.heading').show();
-	$('.last_div').show();	
-	$('.input').focus();
+	$('.last_div').show();
+	// $('.input').attr('contenteditable','false');	
 });
 
 $(document).on('click','.append_div',function(){
 	$('.append_div').hide();
-	$('.input').append("<label><input type='checkbox' class='checkbox_type'><div contenteditable='true' class='checkbox_div'></div></label>");
-	$('.checkbox_div').focus();
-	console.log("hi this works");
-	$('.input').keydown(function(e){
-		if(e.which==13){
-			$('.input').append("<label><input type='checkbox' class='checkbox_type'><div contenteditable='true' class='checkbox_div'></div></label>");
-			$('.checkbox_div').focus();
-			console.log("hi also works");
-		}
-	});
+	$('.input').append("<div contenteditable='true' class='main_div'><input type='checkbox' class='checkbox_type'><span contenteditable='false' class='span_type'>+</span></div>");
+	$(this).closest('.main_div').focus();
+	// $('.main_div').keydown(function(e){
+	// 	if(e.which==13){
+	// 		$('.input').append("<div contenteditable='true' class='main_div'><input type='checkbox' class='checkbox_type'><span contenteditable='false' class='span_type'>+</span></div>");
+	// 		$('.input').find('.main_div').focus();
+	// 	}
+	// });
+});
+
+$(document).on('click','.span_type',function(){
+	$('.input').append("<div contenteditable='true' class='main_div'><input type='checkbox' class='checkbox_type'><span contenteditable='false' class='span_type'>+</span></div>");
+	$('.main_div').focus();
+});
+
+$(document).on('click','.checkbox_type',function(){
+	if($('.checkbox_type').is(':checked')){
+		$(this).closest('.main_div').css({"opacity":"0.5"});
+	}
+	if(!$('.checkbox_type').is(':checked')){
+		$(this).closest('.main_div').css({"opacity":"1"});
+	}	
 });
 
 $(document).on('click','.star',function(){
@@ -149,8 +161,16 @@ $("html").click(function(){
 	$('.append_div').hide();
 });
 	
-$(function() {
-   $( ".storing_div" ).draggable();
+// $(function() {
+//    $( ".storing_div" ).draggable();
+// });
+
+$(document).on('mousedown','.storing_div',function(){
+	$(this).draggable();
+});
+
+$(document).on('mouseover','.storing_div',function(){
+	$(this).draggable();
 });
 
 $(document).on('dblclick','.storing_div',function(){
@@ -169,12 +189,18 @@ $(document).on('click','.close',function(){
 	$('.model').css("display","none");
 	$('.model_content').css("display","none");
 	$('.close').css("display","none");	
+	if($('.storing_div').html()!=$('.model_content').html()){
+		$('.store_div').append("<div class='storing_div'>"+$('.model_content_div').html()+"</div>");
+	}	
 });
 
 $(document).on('click','.popup_done',function(){
 	$('.model').css("display","none");
 	$('.model_content').css("display","none");
 	$('.close').css("display","none");
+	if(($('.storing_div').length+1)%3==1){
+		$('.store_div').append("<br>");
+	}	
 	if($('.storing_div').html()!=$('.model_content').html()){
 		$('.store_div').append("<div class='storing_div'>"+$('.model_content_div').html()+"</div>");
 	}	
