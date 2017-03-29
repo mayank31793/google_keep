@@ -128,9 +128,20 @@ $(document).on('click','.append_div',function(){
 });
 
 $(document).on('click','.span_type',function(){
+	$('.span_type').hide();
 	$('.input').append("<div contenteditable='true' class='main_div'><input type='checkbox' class='checkbox_type'><span contenteditable='false' class='span_type'>+</span></div>");
-	$('.main_div').focus();
+	$('.input').find('.main_div').focus();
+	console.log($('.span_type').length);
+	// $(".span_type:last").hide();
 });
+
+// $(document).on('click','.done',function(){
+// 	$(".span_type:last").hide();
+// });
+
+// $(document).on('focusout','.div_notes',function(){
+// 	$(".span_type:last").hide();
+// });
 
 $(document).on('click','.checkbox_type',function(){
 	if($('.checkbox_type').is(':checked')){
@@ -160,23 +171,18 @@ $("html").click(function(){
 	$('.delete_div').hide();
 	$('.append_div').hide();
 });
-	
-// $(function() {
-//    $( ".storing_div" ).draggable();
-// });
 
 $(document).on('mousedown','.storing_div',function(){
 	$(this).draggable();
 });
 
-$(document).on('mouseover','.storing_div',function(){
+$(document).on('mouseenter','.storing_div',function(){
 	$(this).draggable();
 });
 
 $(document).on('dblclick','.storing_div',function(){
 	var x = $(this).html();
 	$(this).remove();
-	console.log("that is div");
 	$('.model_content_div').html(x);
 	$('.model').css("display","block");
 	$('.model_content').css("display","block");
@@ -205,3 +211,4 @@ $(document).on('click','.popup_done',function(){
 		$('.store_div').append("<div class='storing_div'>"+$('.model_content_div').html()+"</div>");
 	}	
 });
+
